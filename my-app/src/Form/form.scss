@@ -1,0 +1,47 @@
+.form {
+    padding: 1rem; 
+    &_header {
+        h1 {
+            color: #222;
+            background-color: #788888;
+            text-align: center;
+            
+            
+        }
+    }
+    &_container { 
+        gap: 1rem;  
+        display: grid;
+        flex-direction: column;
+        width: 400px;
+        margin-left: 400px;
+        font-size: 30px;
+    
+    
+        
+        
+        .rowTwo{
+            flex-flow: wrap;
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(20%, 1fr)); 
+            margin: 10px;        
+        }
+    }
+    &_footer {
+        padding-top: 1rem;
+    }
+}
+
+
+label{
+    text-transform: capitalize;
+    padding: 1rem;
+    box-sizing: 10px;
+    display: grid;
+}
+.form_footer{
+    text-align: center;
+    -webkit-text-fill-color: darkblue;
+
+}

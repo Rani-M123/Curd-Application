@@ -1,0 +1,41 @@
+.maincont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-top:10% ;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+    flex-wrap: wrap;
+    flex-direction: row;
+    // border: 1px solid black;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 200px;
+    border: 1px solid gray;
+    
+    
+    
+}
+
+.title h1{
+    font-size: medium;  
+}
+
+.title{
+    width: 100%;
+    border-bottom: 1px solid gray;
+    text-align: center;
+}
