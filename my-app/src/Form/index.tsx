@@ -7,7 +7,7 @@ import {  NewSTUDENTFORMELEMENTS } from "./helper";
 import './form.scss';
 import { useParams } from "react-router-dom";
 import axios from "axios";
-
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import DynamicFieldLoad from "../SharedComponents/DynamicFieldLoad";
 import { PrimaryButton } from "@fluentui/react";
@@ -133,11 +133,13 @@ const StudentFormSubmit: SubmitHandler<any> = async (
         <>
         <div className="Header_one">
             <img src="https://zelarsoft.com/wp-content/uploads/2021/10/logo.png"/>
+          
             </div>
         <div className="form">
             <div className="form_header">
+                <p>STUDENT <span style={{color:'#396CC5'}}>FORM</span></p>
         
-                <h1>STUDENT FORM</h1>
+                
             </div>
             <div>
                 <hr/>
@@ -160,7 +162,7 @@ const StudentFormSubmit: SubmitHandler<any> = async (
 
                     </div>
                     <div className="form_footer">
-                        <PrimaryButton onClick={StudentFormMethods.handleSubmit(StudentFormSubmit)}>Submit</PrimaryButton>
+                        <PrimaryButton className='addbtn'onClick={StudentFormMethods.handleSubmit(StudentFormSubmit)}>Submit</PrimaryButton>
                     </div>
                 </form>
             </FormProvider> 

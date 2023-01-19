@@ -9,6 +9,11 @@
     margin-left: 380px;
     display: flex;
     border-radius: 10px;
+    &_header {
+      font-size: 15px;
+      font: normal normal normal 18px Microsoft Sans Serif;
+      
+    }
     &_one
     {
       right: 20px;
@@ -45,4 +50,8 @@
       border-radius: 10px;
     }
     }
+    .addbtn{
+      border-radius: 10px;
+    }
+    
     

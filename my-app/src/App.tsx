@@ -9,10 +9,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <div className="navigation">
-          <Link className='btn' to="view">View</Link>
-          <Link className='btn' to="create">Create</Link>
-        </div>
+        
         <Routes>
           <Route path="/" element={<View />} />
           <Route path="/view" element={<View />} />

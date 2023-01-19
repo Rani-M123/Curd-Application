@@ -2,9 +2,9 @@ import  React, {useEffect, useState} from 'react'
 import axios from 'axios';
 import { DetailsList, DetailsListLayoutMode, IColumn , PrimaryButton} from '@fluentui/react';
 import { Link } from 'react-router-dom';
-import EditIcon from '@mui/icons-material/Edit';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import DeleteIcon from '@mui/icons-material/Delete';
+import {MdEdit} from 'react-icons/md'
+import {MdVisibility} from 'react-icons/md'
+import {MdDelete} from 'react-icons/md';
 import './View.scss'
 import { useNavigate } from 'react-router-dom';
 
@@ -102,7 +102,7 @@ const View = () => {
         {
             key: 'column8',
             name: 'Activities',
-            fieldName: 'Activities',
+            fieldName: 'Activites',
             minWidth: 60,
             maxWidth: 80,
             isResizable: true
@@ -126,9 +126,9 @@ const View = () => {
                 item.id &&
                 <>
     
-                    <Link className='btn' to={`/view/${item.id}`}><VisibilityIcon/></Link>
-                    <Link className='btn' to={`/update/${item.id}`}><EditIcon/></Link>
-                    <Link className='btn' onClick={() => deleteRequest(item.id)} to=''><DeleteIcon/></Link>
+                    <Link className='btn' to={`/view/${item.id}`}><MdVisibility size={20} color={"black"}/></Link>
+                    <Link className='btn' to={`/update/${item.id}`}><MdEdit size={20} color={"black"}/></Link>
+                    <Link className='btn' onClick={() => deleteRequest(item.id)} to=''><MdDelete size={20}color={"black"}/></Link>
                 </>
             )
         },
@@ -138,9 +138,13 @@ const View = () => {
         <div className="Header">
             <div className="Header_one">
                 <img src = "https://zelarsoft.com/wp-content/uploads/2021/10/logo.png" />
+                    <div>      
+                    <Link className='btn' to="view">View</Link>
+                    <Link className='btn' to="create">Create</Link>
+                    </div>
                 </div>
          <div className="Header_add">
-         <PrimaryButton type="submit" onClick={()=>navigation('/create')} text='Add' />          
+         <PrimaryButton type="submit" className='addbtn' onClick={()=>navigation('/create')} text='Add' />          
          </div>
          <div className="Header_table">
              
@@ -157,6 +161,6 @@ const View = () => {
     )
 }
 
-export default View
+export default View;
 
        
