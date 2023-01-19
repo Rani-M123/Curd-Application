@@ -10,32 +10,35 @@ import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
 import DynamicFieldLoad from "../SharedComponents/DynamicFieldLoad";
+import { PrimaryButton } from "@fluentui/react";
 
 
 const StudentForm = () => {
 
-    interface IStudentForm {
+    interface StudenData {
         name?: string;
-        dateofbirth: number;
-        rollnumber: number;
-        english: string;
-        telugu: string;
-        hindi: string;
-        science: string;
-        social: string;
+        rollnumber?: number;
+        english?: number;
+        telugu?: number;
+        hindi?: number;
+        science?: number;
+        social?: number;
+        activities?: number;
+        totalmarks?: number; 
     }
 
     // schema declaration validation
-    const StudentSchema= yup.object().shape({
-        name: yup.string().required().min(4).max(10),
-        rollnumber: yup.number(),
-        english: yup.number(),
-        telugu: yup.number(),
-        hindi: yup.number(),
-        science: yup.number(),
-        social: yup.number(),
-        activities: yup.number(),
-        toatalmarks: yup.number().max(100),
+    const StudentSchema: yup.SchemaOf<StudenData>= yup.object().shape(
+        {
+        name: yup.string().min(4).max(10),
+        rollnumber: yup.number().max(100),
+        english: yup.number().max(100),
+        telugu: yup.number().max(100),
+        hindi: yup.number().max(100),
+        science: yup.number().max(100),
+        social: yup.number().max(100),
+        activities: yup.number().max(100),
+        totalmarks: yup.number().max(100),
 
         
     });
@@ -47,18 +50,18 @@ const StudentForm = () => {
         },
     });
 
-    const id = useParams();
-
-     const [submitData, setSubmitedData] = React.useState();
+    const [submitData, setSubmitedData] = React.useState();
 
     const navigation = useNavigate();
-    const StudentFormSubmit: SubmitHandler<any> = async (
+    
+    const id = useParams();
+const StudentFormSubmit: SubmitHandler<any> = async (
         data: any,
     ) => {
         setSubmitedData(data); 
         console.log(id);
         
-        if (id) {
+        if (id.id) {
             editForm(data);
         } else {
             createForm(data);
@@ -88,7 +91,7 @@ const StudentForm = () => {
         }
     }
 
-    const editForm = async (updatedData: any) => {
+    const editForm = async (updatedData:any) => {
         try {
             console.log(id);
             
@@ -102,6 +105,8 @@ const StudentForm = () => {
     const createForm = async (updatedData: any) => {
         const generateNumber: any = Math.random();
         const newData = { ...updatedData, 'id': generateNumber }
+        console.log(newData);
+        
         try {
             const result = await axios.post(`http://localhost:5000/data`, newData);
             setData(result.data);
@@ -125,28 +130,42 @@ const StudentForm = () => {
     console.log(StudentFormMethods.watch(), StudentFormMethods.formState.errors)
 
     return (
+        <>
+        <div className="Header_one">
+            <img src="https://zelarsoft.com/wp-content/uploads/2021/10/logo.png"/>
+            </div>
         <div className="form">
             <div className="form_header">
-                <h1>Student Form</h1>
+        
+                <h1>STUDENT FORM</h1>
+            </div>
+            <div>
+                <hr/>
             </div>
             <FormProvider {...StudentFormMethods}>
                 <form onSubmit={StudentFormMethods.handleSubmit(StudentFormSubmit)}>
                     <div className="form_container">
 
-                        {NewSTUDENTFORMELEMENTS?.map((item: any) => {
-                            const updatedItem = getAdditionalProps(item);
-                            return DynamicFieldLoad(item.type, updatedItem);
+                        {NewSTUDENTFORMELEMENTS?.map((rows: any) => {
+
+                             return (
+                                <div className={`rowThree ${rows.className}`}>
+                                    {rows.controls?.map((item: any) => {
+                                        const updatedItem = getAdditionalProps(item);
+                                        return DynamicFieldLoad(item.type, updatedItem);
+                                    })}
+                                </div>
+                            );
                         })}
 
                     </div>
                     <div className="form_footer">
-                        <button onClick={StudentFormMethods.handleSubmit(StudentFormSubmit)}
-
-                        >Submit</button>
+                        <PrimaryButton onClick={StudentFormMethods.handleSubmit(StudentFormSubmit)}>Submit</PrimaryButton>
                     </div>
                 </form>
-            </FormProvider>
+            </FormProvider> 
         </div>
+        </>
     );
 };
 

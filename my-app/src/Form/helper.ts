@@ -2,15 +2,20 @@
 
 export const NewSTUDENTFORMELEMENTS = [
     {
+        row:0,
+        className:"rowTwo",
+        controls :[
+          
+        {
         type: "TextFieldForm",
-        name: "name",
-        label: "name",
+        name: "Name",
+        label: "Name",
         isRequired: true,
     },
     {
         type: "TextFieldForm",
-        name: "Roll number",
-        label: "Roll number",
+        name: "RollNumber",
+        label: "RollNumber",
         isRequired: false,
     },
     {
@@ -18,7 +23,14 @@ export const NewSTUDENTFORMELEMENTS = [
         name: "English",
         label: "English",
         isRequired: true,
-    },
+    }
+]
+},
+{
+   
+    row:0,
+    className:"rowTwo",
+    controls :[ 
     
     {
         type: "TextFieldForm",
@@ -38,105 +50,38 @@ export const NewSTUDENTFORMELEMENTS = [
         label: "Science",
         isRequired: true,
     },
+],
+},
+{
+    
+    row:0,
+    className:"rowTwo",
+    controls :[
     {
         type: "TextFieldForm",
-        name: "Scoial",
-        label: "Scoial",
+        name: "Social",
+        label: "Social",
         isRequired: true,
     },
     {
         type: "TextFieldForm",
         name: "Activites",
-        label: "activites",
+        label: "Activites",
         isRequired: true,
 
     },
     {
         type: "TextFieldForm",
         name: "TotalMarks",
-        label: "totalmarks",
+        label: "TotalMarks",
         isRequired: true,
 
-    },
-    
-    
-    
-
-    
-    
-    
-];
-
-export const STUDENTFORMELEMENTS = [
-    {
-        row: 0,
-        className: "rowTwo",
-        controls: [
-
-            {
-                type: "TextFieldForm",
-                name: "name",
-                label: "name",
-                isRequired: true,
-            },
-            {
-                type: "TextFieldForm",
-                name: "dateofbirth", 
-                label: "date of birth",
-                isRequired: false,
-            },
-            {
-                type: "TextFieldForm",
-                name: "Roll number",
-                label: "Roll number",
-                isRequired: false,
-            },
-            {
-                type: "TextFieldForm",
-                name: "English",
-                label: "English",
-                isRequired: true,
-            },
-            
-            {
-                type: "TextFieldForm",
-                name: "Telugu",
-                label: "Telugu",
-                isRequired: true,
-            },
-            {
-                type: "TextFieldForm",
-                name: "Hindi",
-                label: "Hindi",
-                isRequired: true,
-            },
-            {
-                type: "TextFieldForm",
-                name: "Science",
-                label: "Science",
-                isRequired: true,
-            },
-            {
-                type: "TextFieldForm",
-                name: "Scoial",
-                label: "Scoial",
-                isRequired: true,
-            },
-            {
-                type: "TextFieldForm",
-                name: "Activites",
-                label: "activites",
-                isRequired: true,
-
-            },
-            {
-                type: "TextFieldForm",
-                name: "TotalMarks",
-                label: "totalmarks",
-                isRequired: true,
-
-            }
-            
-        ],
-    },
+    },  
+],
+},
 ]
+
+
+    
+    
+    

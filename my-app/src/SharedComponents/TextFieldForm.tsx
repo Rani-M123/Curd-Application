@@ -46,6 +46,7 @@ ITextFieldFormProps) => {
                 <TextField
                   type={typeOf === 'number'?"number":'text'}
                   label={label}
+                  styles={{fieldGroup:{background:"rgb(237,237,237)", border:0,borderRadius:8,}}}
                   disabled={isdisabled}
                   readOnly={isReadyOnly}
                   defaultValue={defaultValue}

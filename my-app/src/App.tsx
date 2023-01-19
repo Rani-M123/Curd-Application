@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import Form from './Form';
 import View from './View/View';
 import ViewIteam from './ViewIteam/ViewIteam';
+import './App.scss';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <BrowserRouter>
         <div className="navigation">
           <Link className='btn' to="view">View</Link>
-          <Link className='btn' to="create">create</Link>
+          <Link className='btn' to="create">Create</Link>
         </div>
         <Routes>
           <Route path="/" element={<View />} />
